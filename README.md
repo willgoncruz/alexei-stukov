@@ -5,11 +5,12 @@ MC 426 (Engenharia de Software)
 Entregável 4 do grupo Alexei Stukov
 
 ## Requerimentos para rodar o projeto
-- [Npm]: https://www.npmjs.com/get-npm
-- [Yarn]: https://yarnpkg.com/en/
+- [Npm] (https://www.npmjs.com/get-npm)
+- [Yarn] (https://yarnpkg.com/en/)
 
 ## Como rodar o frontend localmente
 
 ```
-  yarn start
+  yarn start   // or
+  npm run start
 ```
