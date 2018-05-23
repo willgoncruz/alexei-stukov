@@ -13,6 +13,8 @@ class App extends Component {
         <p className="App-intro">
           To get started, lalalalala edit <code>src/App.js</code> and save to reload.
         </p>
+
+        { this.props.children }
       </div>
     );
   }

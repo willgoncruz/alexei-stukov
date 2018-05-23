@@ -9,10 +9,11 @@ const history = createBrowserHistory()
 const Routes = () => {
 	return (
 		<Router history={history}>
-			<Switch>
-				<Route exact path="/" component={App} />
-				<Route path="/home" component={Home} />
-			</Switch>
+			<App>
+				<Switch>
+					<Route path="/home" component={Home} />
+				</Switch>
+			</App>
 		</Router>
 	)
 }
