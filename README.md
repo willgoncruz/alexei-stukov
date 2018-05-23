@@ -20,3 +20,13 @@ Entregável 4 do grupo Alexei Stukov
 ```
   yarn start   // or npm run start
 ```
+
+
+## Divisão dos timer (Sujeito a mudanças no decorrer do projeto)
+
+- Frontend: Edinha, Erick Saito, Yuri
+- Backend:  Nozomu, Erick Soares, Andrietta
+
+Responsabilidades adicionais:
+  - Máquinas AWS: Nozomu
+  - Alinhar APIs: Edinha
