@@ -8,9 +8,15 @@ Entregável 4 do grupo Alexei Stukov
 - [Npm] (https://www.npmjs.com/get-npm)
 - [Yarn] (https://yarnpkg.com/en/)
 
+## Configuração inicial frontend
+
+```
+  cd frontend
+  yarn install // or npm install
+```
+
 ## Como rodar o frontend localmente
 
 ```
-  yarn start   // or
-  npm run start
+  yarn start   // or npm run start
 ```
