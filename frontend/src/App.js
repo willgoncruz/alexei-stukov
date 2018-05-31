@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import logo from './logo.svg';
 import './css/App.css';
-
+import Button from '@material-ui/core/Button'
 class App extends Component {
   render() {
     return (
@@ -13,7 +13,7 @@ class App extends Component {
         <p className="App-intro">
           To get started, lalalalala edit <code>src/App.js</code> and save to reload.
         </p>
-
+        <Button>Botao</Button>
         { this.props.children }
       </div>
     );
