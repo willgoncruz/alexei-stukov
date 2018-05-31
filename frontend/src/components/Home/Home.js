@@ -4,8 +4,8 @@ import Button from '@material-ui/core/Button';
 class Home extends React.Component {
   render() {
     return (
-		<p className="App-intro">
-			<Button>Botão</Button>
+		<p id="main-container">
+			<Button variant="raised">Botão</Button>
 		</p>
     );
   }
