@@ -4,6 +4,17 @@ from django.conf.urls.static import static
 from django.contrib import admin
 from django.views.generic import TemplateView
 from django.views import defaults as default_views
+from django.conf.urls import url, include
+from rest_framework import routers
+
+from stukov.tasks.views import TaskViewSet, ProjectViewSet, TeamViewSet
+from stukov.users.views import UserViewSet
+
+router = routers.DefaultRouter()
+router.register(r'tasks', TaskViewSet)
+router.register(r'projects', ProjectViewSet)
+router.register(r'teams', TeamViewSet)
+router.register(r'users', UserViewSet)
 
 urlpatterns = [
     path("", TemplateView.as_view(template_name="pages/home.html"), name="home"),
@@ -15,12 +26,15 @@ urlpatterns = [
     # Django Admin, use {% url 'admin:index' %}
     path(settings.ADMIN_URL, admin.site.urls),
     # User management
-    path(
-        "users/",
-        include("stukov.users.urls", namespace="users"),
-    ),
+    # path(
+    #     "users/",
+    #     include("stukov.users.urls", namespace="users"),
+    # ),
     path("accounts/", include("allauth.urls")),
     # Your stuff: custom urls includes go here
+
+    path("api/", include(router.urls)),
+    path("users/", include("stukov.users.urls")),
 ] + static(
     settings.MEDIA_URL, document_root=settings.MEDIA_ROOT
 )

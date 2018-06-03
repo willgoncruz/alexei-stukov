@@ -17,5 +17,5 @@ class Team(models.Model):
     name = models.CharField(max_length=255, blank=False, null=False)
     project = models.ForeignKey(Project, blank=False, null=False, on_delete=models.CASCADE)
     users = models.ManyToManyField(User)
-    tasks = models.ManyToManyField(Task)
+    tasks = models.ManyToManyField(Task, blank=True)
 
