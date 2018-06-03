@@ -14,6 +14,7 @@ class Header extends React.Component {
         return (
             <AppBar position="static" color="primary">
                 <div className="header-container">
+                    <div>
                     {
                         this.props.hasSearch &&
                         <Input label="Busca"
@@ -33,10 +34,11 @@ class Header extends React.Component {
                             size="small">
                             <span className="button-content">Projetos</span>
                     </Button>
+                    </div>
                     <IconButton aria-label="Ações">
                         <SettingsIcon className="button-content" />
                     </IconButton>
-                    <IconButton aria-label="Ações">
+                    <IconButton aria-label="Notificações">
                         <NotificationsIcon className="button-content" />
                     </IconButton>
                 </div>
