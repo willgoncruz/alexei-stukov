@@ -12,6 +12,12 @@
   font-size: large;
 }
 
+.pinned-right {
+  position: fixed;
+  right: 20px;
+  bottom: 20px;
+}
+
 @keyframes App-logo-spin {
   from { transform: rotate(0deg); }
   to { transform: rotate(360deg); }

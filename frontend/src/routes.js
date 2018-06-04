@@ -11,6 +11,7 @@ const Routes = () => {
 		<Router history={history}>
 			<App>
 				<Switch>
+					<Route exact path="/" component={Home} />
 					<Route path="/home" component={Home} />
 				</Switch>
 			</App>
