@@ -68,6 +68,7 @@ THIRD_PARTY_APPS = [
     'allauth.account',
     'allauth.socialaccount',
     'rest_framework',
+    'corsheaders',
 ]
 LOCAL_APPS = [
     'stukov.users.apps.UsersConfig',
@@ -136,6 +137,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'corsheaders.middleware.CorsMiddleware',
 ]
 
 # STATIC
@@ -221,6 +223,7 @@ ADMINS = [
 # https://docs.djangoproject.com/en/dev/ref/settings/#managers
 MANAGERS = ADMINS
 
+CORS_ORIGIN_ALLOW_ALL=True
 
 # django-allauth
 # ------------------------------------------------------------------------------
