@@ -12,7 +12,6 @@ import './css/App.css';
 import './css/Home.css';
 import './css/Header.css';
 import './css/index.css';
-import './css/settings.css';
 import './css/main-style.css';
 
 class App extends Component {
