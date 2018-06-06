@@ -1,6 +1,101 @@
 @import './settings';
 
+@mixin width-limits($min-width, $max-width) {
+    min-width: $min-width;
+    max-width: $max-width;
+}
+
+@mixin margin($margin) {
+    margin: $margin;
+}
+
+@mixin margins($top, $right, $bottom, $left) {
+    margin: $top $right $bottom $left;
+}
+
+/* Variables */
+$w25: calc(25% - 2 * #{$spacing});
+$w33: calc(33.33% - 2 * #{$spacing});
+$w50: calc(50% - 2 * #{$spacing});
+$w75: calc(75% - 2 * #{$spacing});
+
 .button-content {
     color: $link-color;
     font-weight: bold;
+}
+
+.flex-container {
+   width: 100%;
+   display: flex;
+   flex-direction: row;
+   flex-wrap: wrap;
+   justify-content: flex-start;
+
+   @media screen and (max-width: $mobile) {
+       flex-direction: column;
+   }
+}
+
+.flex-container--column {
+    flex-direction: column;
+}
+
+.inner-padding {
+    padding: 10px;
+}
+
+.w-sm {
+    width: $w25;
+
+    @include margin($spacing);
+    @include width-limits(150px, 1920px);
+
+    @media screen and (max-width: $screen-md) {
+        width: $w33;
+    }
+
+    @media screen and (max-width: $screen-sm) {
+        width: $w50;
+    }
+
+    @media screen and (max-width: $mobile) {
+        width: 100%;
+    }
+}
+
+.w-md {
+    width: $w33;
+
+    @include margin($spacing);
+    @include width-limits(300px, 1920px);
+
+    @media screen and (max-width: $screen-sm) {
+        width: $w50;
+    }
+
+    @media screen and (max-width: $mobile) {
+        width: 100%;
+    }
+}
+
+.w-lg {
+    width: $w50;
+
+    @include margin($spacing);
+    @include width-limits(300px, 1920px);
+
+    @media screen and (max-width: $mobile) {
+        width: 100%;
+    }
+}
+
+.w-fu {
+    width: 100%;
+    min-width: 300px;
+
+    @include margin($spacing);
+
+    @media screen and (max-width: $mobile) {
+        width: 100%;
+    }
 }
