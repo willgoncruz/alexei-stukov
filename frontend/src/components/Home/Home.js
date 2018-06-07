@@ -2,6 +2,10 @@ import React from 'react';
 import request from 'axios';
 import ProjectCard from '../Project/ProjectCard';
 import CreateProjectPage from '../Project/CreateProjectPage';
+import LeftMenu from '../Menu/LeftMenu';
+import Header from '../Header/Header';
+import Button from '@material-ui/core/Button';
+import AddIcon from '@material-ui/icons/Add';
 
 const API_URL = 'http://18.228.31.90/api';
 
@@ -42,7 +46,10 @@ class Home extends React.Component {
 
   render() {
     return (
-      <div id="project-container" className="flex-container inner-padding">
+      <div style={{flexGrow: 1}}>
+        <Header hasSearch={true} />
+        <LeftMenu />
+        <div id="project-container" className="flex-container inner-padding">
         {this.state.projects.map(project =>
           <ProjectCard  key={project.id} className="w-sm"
                         href={project.url}
@@ -52,8 +59,14 @@ class Home extends React.Component {
           />
         )}
 
-        <CreateProjectPage open={true} fullScreen={this.state.width <= 600}/>
       </div>
+      <div className="pinned-right">
+          <Button variant="fab" color="secondary" aria-label="add">
+            <AddIcon />
+          </Button>
+        </div>
+      </div>
+      
     );
   }
 }
