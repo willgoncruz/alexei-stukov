@@ -14,6 +14,7 @@ class Home extends React.Component {
     super();
     this.state = {
       width: window.innerWidth,
+      height: window.innerHeight,
       projects: []
     };
   }
@@ -40,16 +41,17 @@ class Home extends React.Component {
 
   updateSize = () => {
     this.setState({
-      width: window.innerWidth
+      width: window.innerWidth,
+      height: window.innerHeight
     });
   }
 
   render() {
     return (
-      <div style={{flexGrow: 1}}>
-        <Header hasSearch={true} />
+      <div>
+        <Header hasSearch={true}/>
         <LeftMenu />
-        <div id="project-container" className="flex-container inner-padding">
+        <div id="project-container" className="flex-container inner-padding left-menu-padding">
         {this.state.projects.map(project =>
           <ProjectCard  key={project.id} className="w-sm"
                         href={project.url}

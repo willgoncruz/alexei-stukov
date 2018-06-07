@@ -13,25 +13,9 @@ import './css/Header.css';
 import './css/index.css';
 import './css/main-style.css';
 import './css/CreateProjectPage.css';
+import './css/LeftMenu.css';
 
 class App extends Component {
-  constructor() {
-    super();
-    this.state = {
-      width: window.innerWidth,
-      height: window.innerHeight
-    };
-  }
-
-  componentDidMount() {
-    window.addEventListener('resize', e => {
-      this.setState({
-        width: window.innerWidth,
-        height: window.innerHeight
-      });
-    });
-  }
-
   render() {
     return (
       <MuiThemeProvider theme={theme}>
@@ -39,9 +23,6 @@ class App extends Component {
         <div className="App">
           
         </div>
-
-        
-
         { this.props.children }
       </MuiThemeProvider>
     );
