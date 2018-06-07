@@ -1,6 +1,7 @@
 import React from 'react';
 import request from 'axios';
 import ProjectCard from '../Project/ProjectCard';
+import CreateProjectPage from '../Project/CreateProjectPage';
 
 const API_URL = 'http://18.228.31.90/api';
 
@@ -8,6 +9,7 @@ class Home extends React.Component {
   constructor() {
     super();
     this.state = {
+      width: window.innerWidth,
       projects: []
     };
   }
@@ -18,10 +20,23 @@ class Home extends React.Component {
       this.setState({
         projects: response.data
       });
-      console.log(this.state.projects);
     })
     .catch(e => {
 
+    });
+  }
+
+  componentDidMount() {
+    window.addEventListener("resize", this.updateSize);
+  }
+
+  componentWillUnmount() {
+      window.removeEventListener("resize", this.updateSize);
+  }
+
+  updateSize = () => {
+    this.setState({
+      width: window.innerWidth
     });
   }
 
@@ -36,6 +51,8 @@ class Home extends React.Component {
                         imageUrl="https://cdn.blizzardwatch.com/wp-content/uploads/2016/12/Gingerdread-Header-120916.jpg"
           />
         )}
+
+        <CreateProjectPage open={true} fullScreen={this.state.width <= 600}/>
       </div>
     );
   }

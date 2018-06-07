@@ -1,0 +1,13 @@
+@import './settings';
+#create-project-dialog {
+}
+
+#create-project-header {
+    font-size: 1.5rem;
+}
+
+#create-project-container {
+    width: 600px;
+    height: 400px;
+    padding-left: $spacing;
+}

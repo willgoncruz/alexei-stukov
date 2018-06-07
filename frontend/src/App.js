@@ -13,6 +13,7 @@ import './css/Home.css';
 import './css/Header.css';
 import './css/index.css';
 import './css/main-style.css';
+import './css/CreateProjectPage.css';
 
 class App extends Component {
   render() {
