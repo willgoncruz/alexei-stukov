@@ -1,5 +1,7 @@
 
 import React from 'react';
+import Modal from '@material-ui/core/Modal';
+
 
 class ModalContainer extends React.Component {
   render() {
@@ -8,11 +10,9 @@ class ModalContainer extends React.Component {
     }
 
     return (
-      <div className='ModalContainer'>
-        <div className='modal-white'>
-          { this.props.children }
-        </div>
-      </div>
+      <Modal open={this.props.open} onClose={this.props.onClick}>
+        {this.props.children}
+      </Modal>
     );
   }
 }

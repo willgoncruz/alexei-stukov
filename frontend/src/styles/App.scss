@@ -22,26 +22,23 @@
   bottom: 20px;
 }
 
-.ModalContainer {
-  top: 0;
-  left: 0;
-  width: 100vw;
-  height: 100vh;
-  position: fixed;
-  background-color: rgba(0, 0, 0, 0.6);
-}
-
-.modal-white {
-  margin: auto;
-  display: flex;
-  height: inherit;
-}
-
 .CreateProject {
   margin: auto;
   width: 80vw;
   height: 70vh;
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
   background-color: white;
+}
+
+.CreateProject__title {
+  width: 100%;
+}
+
+.text-field-centralize {
+  margin: 0 auto;
+  width: 70%;
 }
 
 @keyframes App-logo-spin {

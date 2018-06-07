@@ -56,7 +56,7 @@ class App extends Component {
           </Button>
         </div>
 
-        <ModalContainer open={this.state.modalOpen}>
+        <ModalContainer open={this.state.modalOpen} onClick={this.onClick}>
           <CreateProject />
         </ModalContainer>
 
