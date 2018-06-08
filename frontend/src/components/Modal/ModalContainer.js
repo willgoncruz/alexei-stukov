@@ -11,7 +11,7 @@ class ModalContainer extends React.Component {
 
     return (
       <Modal open={this.props.open} onClose={this.props.onClick}>
-        { React.cloneElement(this.props.children, { closeModal: this.props.onClick }) }
+        { React.cloneElement(this.props.children, { closeModal: this.props.closeModalSave }) }
       </Modal>
     );
   }

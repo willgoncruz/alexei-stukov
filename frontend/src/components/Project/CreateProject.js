@@ -37,7 +37,7 @@ class CreateProject extends React.Component {
         <h1 className='CreateProject__title'>
           Criação de projeto
         </h1>
-        
+
         <div className='text-field-centralize'>
           <TextField name='name' label='Nome' value={this.state.name} onChange={this.onChange} fullWidth />
         </div>
@@ -46,8 +46,8 @@ class CreateProject extends React.Component {
           <TextField name='description' label='Descrição' value={this.state.description} onChange={this.onChange} multiline fullWidth />
         </div>
 
-        <div className='create-project-button' onClick={this.createProject}>
-          <Button> Criar Projeto > </Button>
+        <div className='create-project-button'>
+          <Button onClick={this.createProject}> Criar Projeto > </Button>
         </div>
 
       </div>

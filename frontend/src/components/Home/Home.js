@@ -21,14 +21,17 @@ class Home extends React.Component {
       height: window.innerHeight,
       projects: []
     };
+
     this.onClick = this.onClick.bind(this)
+    this.closeModalSave = this.closeModalSave.bind(this)
   }
 
   componentWillMount() {
     request.get(`${API_URL}/projects/`)
     .then(response => {
       this.setState({
-        projects: response.data
+        projects: response.data,
+        modalOpen: false,
       });
     })
     .catch(e => {
@@ -53,7 +56,10 @@ class Home extends React.Component {
 
   onClick() {
     this.setState({ modalOpen: !this.state.modalOpen })
-  
+  }
+
+  closeModalSave() {
+    this.componentWillMount()
   }
 
   render() {
@@ -76,7 +82,7 @@ class Home extends React.Component {
             </Button>
           </div>
 
-          <ModalContainer open={this.state.modalOpen} onClick={this.onClick}>
+          <ModalContainer open={this.state.modalOpen} onClick={this.onClick} closeModalSave={this.closeModalSave}>
             <CreateProject />
           </ModalContainer>
 
