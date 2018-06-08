@@ -4,7 +4,7 @@ import createBrowserHistory from 'history/createBrowserHistory'
 
 import App from './App'
 import Home from './components/Home/Home'
-
+import TasksPage from './components/Task/TasksPage'
 const history = createBrowserHistory()
 const Routes = () => {
 	return (
@@ -13,6 +13,7 @@ const Routes = () => {
 				<Switch>
 					<Route exact path="/" component={Home} />
 					<Route path="/home" component={Home} />
+					<Route path="/tasks" component={TasksPage} />
 				</Switch>
 			</App>
 		</Router>
