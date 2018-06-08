@@ -56,9 +56,7 @@ class TaskCard extends React.Component {
 }
 
 TaskCard.propTypes = {
-    imageUrl: PropTypes.string,
-    name: PropTypes.string.isRequired,
-    description: PropTypes.string.isRequired
+    name: PropTypes.string.isRequired
 }
 
 export default withStyles(styles)(TaskCard);
