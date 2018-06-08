@@ -36,6 +36,15 @@
   width: 100%;
 }
 
+.create-project-button {
+  width: 100%;
+  text-align: right;
+}
+
+.create-project-button span {
+  cursor: pointer;
+}
+
 .text-field-centralize {
   margin: 0 auto;
   width: 70%;
