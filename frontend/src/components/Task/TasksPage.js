@@ -21,9 +21,10 @@ class Home extends React.Component {
   componentWillMount() {
     request.get(`${API_URL}/tasks/`)
     .then(response => {
+      
       this.setState({
-        tasks: response.data
-      });
+        tasks: response.data.sort((t1, t2) => {return t1.id - t2.id})
+      });   
     })
     .catch(e => {
 
@@ -52,12 +53,13 @@ class Home extends React.Component {
         <LeftMenu />
         <div id="tasks-container" className="flex-container inner-padding left-menu-padding">
         {this.state.tasks.map(task =>
-          <TaskCard name={"OOI"} description={")(*("} className={'w-xs'} />
+          <TaskCard name={task.name} date={task.date_limit} className={'w-sm'} />
         )}
 
         </div>
       <div className="pinned-right">
-          <Button variant="fab" color="secondary" aria-label="add">
+          <Button variant="fab" color="secondary" aria-label="add"
+                  onClick={() => this.props.history.push('/tasks/new')}>
             <AddIcon />
           </Button>
         </div>

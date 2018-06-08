@@ -6,7 +6,7 @@
 }
 
 @mixin margin($margin) {
-    margin: $margin;
+    margin: $margin !important;
 }
 
 @mixin margins($top, $right, $bottom, $left) {
@@ -60,7 +60,7 @@ $w75: calc(75% - 2 * #{$spacing});
     }
 
     @media screen and (max-width: $mobile) {
-        width: $w50;
+        width: 100%;
     }
 }
 
@@ -116,6 +116,18 @@ $w75: calc(75% - 2 * #{$spacing});
     @include margin($spacing);
 
     @media screen and (max-width: $mobile) {
+        width: 100%;
+    }
+}
+
+.form-container {
+    width: $screen-sm;
+    margin: 0 auto;
+    @media screen and (max-width: $screen-sm) {
+        width: 100%;
+    }
+
+    form {
         width: 100%;
     }
 }
