@@ -9,7 +9,7 @@ class LeftMenu extends React.Component {
                     anchor={'left'}>
                 <div id="left-menu">
                     <img className="project-image" src="https://vignette.wikia.nocookie.net/starcraft/images/e/e1/AlexeiStukov_HotS_Head1.jpg" />
-                    <Typography variant="headline" component="h3">Alexei Stukov</Typography>
+                    <Typography style={{color:'white'}} variant="headline" component="h3">Alexei Stukov</Typography>
                     <Divider />
                 </div>
             </Drawer>

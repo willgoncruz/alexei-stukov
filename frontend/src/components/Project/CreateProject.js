@@ -2,6 +2,7 @@
 import React from 'react';
 import request from 'axios';
 import TextField from '@material-ui/core/TextField';
+import { Button } from '@material-ui/core';
 
 const API_URL = 'http://18.228.31.90/api';
 
@@ -33,10 +34,10 @@ class CreateProject extends React.Component {
   render() {
     return (
       <div className='CreateProject'>
-        <h2 className='CreateProject__title'>
+        <h1 className='CreateProject__title'>
           Criação de projeto
-        </h2>
-
+        </h1>
+        
         <div className='text-field-centralize'>
           <TextField name='name' label='Nome' value={this.state.name} onChange={this.onChange} fullWidth />
         </div>
@@ -46,7 +47,7 @@ class CreateProject extends React.Component {
         </div>
 
         <div className='create-project-button' onClick={this.createProject}>
-          <span> Criar Projeto > </span>
+          <Button> Criar Projeto > </Button>
         </div>
 
       </div>

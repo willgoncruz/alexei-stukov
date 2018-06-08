@@ -14,13 +14,13 @@ class Header extends React.Component {
         return (
             <AppBar position="static" color="primary">
                 <div className="header-container">
-                    <div>
+                    <div style={{color:'white'}}>
                     {
                         this.props.hasSearch &&
-                        <Input label="Busca"
+                        <Input style={{color:'white'}} label="Busca"
                                id="search-textfield"
                                startAdornment={
-                                   <InputAdornment position="start">
+                                   <InputAdornment style={{color:'white'}} position="start">
                                        <SearchIcon />
                                    </InputAdornment>
                                }

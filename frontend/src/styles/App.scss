@@ -19,8 +19,8 @@
 
 .CreateProject {
   margin: auto;
-  width: 80vw;
-  height: 70vh;
+  width: 50vw;
+  height: 55vh;
   display: flex;
   flex-wrap: wrap;
   flex-direction: row;
@@ -28,6 +28,7 @@
 }
 
 .CreateProject__title {
+  text-align: center;
   width: 100%;
 }
 
@@ -42,7 +43,7 @@
 
 .text-field-centralize {
   margin: 0 auto;
-  width: 70%;
+  width: 80%;
 }
 
 @keyframes App-logo-spin {
