@@ -60,15 +60,8 @@ class Home extends React.Component {
                         imageUrl="https://cdn.blizzardwatch.com/wp-content/uploads/2016/12/Gingerdread-Header-120916.jpg"
           />
         )}
-
-      </div>
-      <div className="pinned-right">
-          <Button variant="fab" color="secondary" aria-label="add">
-            <AddIcon />
-          </Button>
         </div>
       </div>
-      
     );
   }
 }

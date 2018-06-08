@@ -17,6 +17,34 @@
   bottom: 20px;
 }
 
+.CreateProject {
+  margin: auto;
+  width: 80vw;
+  height: 70vh;
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  background-color: white;
+}
+
+.CreateProject__title {
+  width: 100%;
+}
+
+.create-project-button {
+  width: 100%;
+  text-align: right;
+}
+
+.create-project-button span {
+  cursor: pointer;
+}
+
+.text-field-centralize {
+  margin: 0 auto;
+  width: 70%;
+}
+
 @keyframes App-logo-spin {
   from { transform: rotate(0deg); }
   to { transform: rotate(360deg); }
