@@ -1,6 +1,9 @@
 
 import React from 'react';
+import request from 'axios';
 import TextField from '@material-ui/core/TextField';
+
+const API_URL = 'http://18.228.31.90/api';
 
 class CreateProject extends React.Component {
   constructor(props) {
@@ -11,6 +14,20 @@ class CreateProject extends React.Component {
       name: '',
       description: ''
     }
+
+    this.onChange = this.onChange.bind(this)
+    this.createProject = this.createProject.bind(this)
+  }
+
+  createProject() {
+    const data = Object.assign({}, this.state)
+    delete data['step']
+
+    request.post(`${API_URL}/projects/?format=api`, data).then(this.props.closeModal).catch(() => {})
+  }
+
+  onChange({ target }) {
+    this.setState({ [target.name]: target.value  })
   }
 
   render() {
@@ -21,11 +38,15 @@ class CreateProject extends React.Component {
         </h2>
 
         <div className='text-field-centralize'>
-          <TextField label='Nome' value={this.state.name} fullWidth />
+          <TextField name='name' label='Nome' value={this.state.name} onChange={this.onChange} fullWidth />
         </div>
 
         <div className='text-field-centralize'>
-          <TextField label='Descrição' value={this.state.description} multiLine fullWidth />
+          <TextField name='description' label='Descrição' value={this.state.description} onChange={this.onChange} multiline fullWidth />
+        </div>
+
+        <div className='create-project-button' onClick={this.createProject}>
+          <span> Criar Projeto > </span>
         </div>
 
       </div>

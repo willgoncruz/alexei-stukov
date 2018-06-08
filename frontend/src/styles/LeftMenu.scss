@@ -1,0 +1,29 @@
+@import './settings';
+
+$left-menu-width: 200px;
+
+#left-menu {
+    width: $left-menu-width;
+    height: 100%;
+    padding: 10px;
+    text-align: center;
+    background-color: #bbb;
+
+    .project-image {
+        width: 150px;
+        height: 150px;
+        border-radius: 100%;
+    }
+
+    @media screen and (max-width: $mobile) {
+        display: none;
+    }
+}
+
+.left-menu-padding {
+    padding-left: $left-menu-width + 2*$spacing;
+
+    @media screen and (max-width: $mobile) {
+        padding-left: 0px;
+    }
+}

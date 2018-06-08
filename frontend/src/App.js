@@ -16,6 +16,7 @@ import './css/Header.css';
 import './css/index.css';
 import './css/main-style.css';
 import './css/CreateProjectPage.css';
+import './css/LeftMenu.css';
 
 class App extends Component {
   constructor() {

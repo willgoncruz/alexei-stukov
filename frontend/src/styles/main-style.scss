@@ -6,7 +6,7 @@
 }
 
 @mixin margin($margin) {
-    margin: $margin;
+    margin: $margin !important;
 }
 
 @mixin margins($top, $right, $bottom, $left) {
@@ -14,6 +14,7 @@
 }
 
 /* Variables */
+$w20: calc(20% - 2 * #{$spacing});
 $w25: calc(25% - 2 * #{$spacing});
 $w33: calc(33.33% - 2 * #{$spacing});
 $w50: calc(50% - 2 * #{$spacing});
@@ -42,6 +43,25 @@ $w75: calc(75% - 2 * #{$spacing});
 
 .inner-padding {
     padding: 10px;
+}
+
+.w-xs {
+    width: $w20;
+
+    @include margin($spacing);
+    @include width-limits(50px, 1920px);
+    
+    @media screen and (max-width: $screen-md) {
+        width: $w25;
+    }
+
+    @media screen and (max-width: $screen-sm) {
+        width: $w33;
+    }
+
+    @media screen and (max-width: $mobile) {
+        width: 100%;
+    }
 }
 
 .w-sm {
@@ -96,6 +116,18 @@ $w75: calc(75% - 2 * #{$spacing});
     @include margin($spacing);
 
     @media screen and (max-width: $mobile) {
+        width: 100%;
+    }
+}
+
+.form-container {
+    width: $screen-sm;
+    margin: 0 auto;
+    @media screen and (max-width: $screen-sm) {
+        width: 100%;
+    }
+
+    form {
         width: 100%;
     }
 }

@@ -29,7 +29,7 @@ class ProjectCard extends React.Component {
                     title="Project Image"
                 />
                 <CardContent>
-                  <Typography gutterBottom variant="headline" component="h2"
+                  <Typography component="h2"
                               className={this.props.classes.undecorated} noWrap={true}>
                     { name }
                   </Typography>
