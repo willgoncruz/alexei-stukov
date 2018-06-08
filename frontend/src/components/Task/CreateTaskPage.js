@@ -2,9 +2,23 @@ import React from 'react';
 import Header from '../Header/Header';
 import TextField from '@material-ui/core/TextField';
 import Typography from '@material-ui/core/Typography';
-import IconButton from '@material-ui/core/IconButton';
 import SaveIcon from '@material-ui/icons/Save';
 import request from 'axios';
+import Button from '@material-ui/core/Button';
+import { withStyles } from '@material-ui/core/styles';
+
+const styles = {
+    title: {
+        width: '100%',
+        padding: '5px',
+        fontSize: '24px'
+    },
+    buttonContainer: {
+        width: '100%',
+        display: 'flex',
+        justifyContent: 'flex-end'
+    }
+}
 
 const API_URL = 'http://18.228.31.90/api';
 
@@ -51,25 +65,21 @@ class CreateTaskPage extends React.Component {
             <div className={"form-container flex-container--column"}>
                 
                 <form className={"flex-container inner-padding"} onSubmit={this.submitTask}>
-                        <Typography style={{width: '100%', padding: '5px',
-                                            fontSize: '24px'}}>
+                        <Typography className={this.props.classes.title}>
                             Nova tarefa
-                            <IconButton type="submit">
-                                <SaveIcon />
-                            </IconButton>
                         </Typography>
-                        <TextField label="Nome" className={'w-lg'}
+                        <TextField label="Nome" className={'w-fu'}
                                    value={this.state.name}
                                    onChange={this.handleChange('name')}
                                    inputProps={{required: true}} />
 
-                        <TextField label="Prioridade" className={'w-sm'}
+                        <TextField label="Prioridade" className={'w-lg'}
                                    type="number"
                                    value={this.state.priority}
                                    onChange={this.handleChange('priority')}
                                    inputProps={{required: true}} />
 
-                        <TextField label="Prazo de entrega" className={'w-sm'}
+                        <TextField label="Prazo de entrega" className={'w-lg'}
                                    type="date"
                                    value={this.state.date}
                                    onChange={this.handleChange('date')}
@@ -83,10 +93,15 @@ class CreateTaskPage extends React.Component {
                                    value={this.state.description}
                                    onChange={this.handleChange('description')}
                                    inputProps={{required: true}} />
+
+                        <div className={this.props.classes.buttonContainer}>
+                            <Button variant="raised" color="primary" type="submit"><SaveIcon />&nbsp;Criar tarefa</Button>
+                        </div>
+                        
                 </form>
             </div>
         </div>);
     }
 }
 
-export default CreateTaskPage;
+export default withStyles(styles)(CreateTaskPage);

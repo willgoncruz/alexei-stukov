@@ -53,7 +53,7 @@ class Home extends React.Component {
         <LeftMenu />
         <div id="tasks-container" className="flex-container inner-padding left-menu-padding">
         {this.state.tasks.map(task =>
-          <TaskCard name={task.name} date={task.date_limit} className={'w-sm'} />
+          <TaskCard name={task.name} date={task.date_limit} href={`/tasks/${task.id}`} className={'w-sm'} />
         )}
 
         </div>

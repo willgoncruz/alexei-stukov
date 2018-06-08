@@ -5,6 +5,7 @@ import App from './App'
 import Home from './components/Home/Home'
 import TasksPage from './components/Task/TasksPage'
 import CreateTaskPage from './components/Task/CreateTaskPage';
+import TaskInfoPage from './components/Task/TaskInfoPage';
 
 const history = createBrowserHistory()
 const Routes = () => {
@@ -16,6 +17,7 @@ const Routes = () => {
 					<Route path="/home" component={Home} />
 					<Route path="/tasks" component={TasksPage} exact={true} />
 					<Route path="/tasks/new" component={CreateTaskPage} exact={true}/>
+					<Route path="/tasks/:taskId" component={TaskInfoPage} />
 				</Switch>
 			</App>
 		</Router>

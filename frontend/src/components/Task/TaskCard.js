@@ -15,7 +15,8 @@ const styles = {
     },
     card: {
         paddingBottom: '10px !important',
-        overflow: 'hidden'
+        overflow: 'hidden',
+        cursor: 'pointer'
     },
     date: {
         marginTop: '10px'
@@ -35,7 +36,7 @@ class TaskCard extends React.Component {
     render() {
         const { name, description, href, date, ...otherProps} = this.props;
         return (
-            <div {...otherProps}>
+            <div {...otherProps} onClick={() => { if (href) window.location.href = href; }}>
               <Card>
                 <CardContent className={this.props.classes.card}>
                   <Typography classes={{root: this.props.classes.taskTitle}}
