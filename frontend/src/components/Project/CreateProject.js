@@ -23,9 +23,7 @@ class CreateProject extends React.Component {
     const data = Object.assign({}, this.state)
     delete data['step']
 
-    request.post(`${API_URL}/projects/?format=api`, data).then(() => {
-      console.log('Deu certo')
-    }).catch(() => {})
+    request.post(`${API_URL}/projects/?format=api`, data).then(this.props.closeModal).catch(() => {})
   }
 
   onChange({ target }) {
