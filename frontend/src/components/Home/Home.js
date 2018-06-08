@@ -6,17 +6,22 @@ import LeftMenu from '../Menu/LeftMenu';
 import Header from '../Header/Header';
 import Button from '@material-ui/core/Button';
 import AddIcon from '@material-ui/icons/Add';
+import ModalContainer from '../Modal/ModalContainer';
+import CreateProject from '../Project/CreateProject';
 
 const API_URL = 'http://18.228.31.90/api';
+
 
 class Home extends React.Component {
   constructor() {
     super();
     this.state = {
+      modalOpen: false,
       width: window.innerWidth,
       height: window.innerHeight,
       projects: []
     };
+    this.onClick = this.onClick.bind(this)
   }
 
   componentWillMount() {
@@ -46,6 +51,11 @@ class Home extends React.Component {
     });
   }
 
+  onClick() {
+    this.setState({ modalOpen: !this.state.modalOpen })
+  
+  }
+
   render() {
     return (
       <div>
@@ -60,6 +70,16 @@ class Home extends React.Component {
                         imageUrl="https://cdn.blizzardwatch.com/wp-content/uploads/2016/12/Gingerdread-Header-120916.jpg"
           />
         )}
+          <div className="pinned-right">
+            <Button variant="fab" color="secondary" aria-label="add" onClick={this.onClick}>
+              <AddIcon />
+            </Button>
+          </div>
+
+          <ModalContainer open={this.state.modalOpen} onClick={this.onClick}>
+            <CreateProject />
+          </ModalContainer>
+
         </div>
       </div>
     );
