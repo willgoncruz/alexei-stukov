@@ -31,8 +31,12 @@ class Header extends React.Component {
                             <span className="button-content">Home</span>
                     </Button>
                     <Button className="header__item"
-                            size="small">
+                            size="small" href="http://localhost:3000/" type="a">
                             <span className="button-content">Projetos</span>
+                    </Button>
+                    <Button className="header__item"
+                            size="small" href="http://localhost:3000/tasks/" type="a">
+                            <span className="button-content">Tarefas</span>
                     </Button>
                     </div>
                     <IconButton aria-label="Ações">
@@ -42,8 +46,8 @@ class Header extends React.Component {
                         <NotificationsIcon className="button-content" />
                     </IconButton>
                 </div>
-                
-                
+
+
 
             </AppBar>
         );
