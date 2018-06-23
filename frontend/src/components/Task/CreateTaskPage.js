@@ -23,8 +23,8 @@ const styles = {
 const API_URL = 'http://18.228.31.90/api';
 
 class CreateTaskPage extends React.Component {
-    constructor() {
-        super();
+    constructor(props) {
+        super(props);
         this.state = {
             name: '',
             date: new Date(0),

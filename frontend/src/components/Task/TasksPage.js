@@ -1,7 +1,5 @@
 import React from 'react';
 import request from 'axios';
-import LeftMenu from '../Menu/LeftMenu';
-import Header from '../Header/Header';
 import Button from '@material-ui/core/Button';
 import AddIcon from '@material-ui/icons/Add';
 import TaskCard from '../Task/TaskCard';
@@ -66,8 +64,6 @@ class Home extends React.Component {
   render() {
     return (
       <div>
-        <Header hasSearch={true}/>
-        <LeftMenu />
         <div id="tasks-container" className="flex-container inner-padding left-menu-padding">
         {this.state.tasks.map(task =>
           <TaskCard key={task.id} name={task.name} date={task.date_limit} href={`/tasks/${task.id}`} className={'w-sm'} />

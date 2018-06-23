@@ -10,14 +10,14 @@ import Typography from '@material-ui/core/Typography';
 const styles = {
     media: {
         height: 0,
-        paddingTop: '56.25%', // 16:9
+        paddingTop: '56.25%',
         cursor: 'pointer'
     }
 }
 
 class ProjectCard extends React.Component {
     render() {
-        const { name, description, href, imageUrl, ...otherProps } = this.props;
+        const { id, name, description, href, imageUrl, ...otherProps } = this.props;
 
         return (
             <div {...otherProps}>

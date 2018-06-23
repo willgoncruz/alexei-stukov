@@ -65,12 +65,10 @@ class Home extends React.Component {
   render() {
     return (
       <div>
-        <Header hasSearch={true}/>
-        <LeftMenu />
         <div id="project-container" className="flex-container inner-padding left-menu-padding">
         {this.state.projects.map(project =>
           <ProjectCard  key={project.id} className="w-sm"
-                        href={project.url}
+                        href={`/project/${project.id}`}
                         name={project.name}
                         description={project.description}
                         imageUrl="https://cdn.blizzardwatch.com/wp-content/uploads/2016/12/Gingerdread-Header-120916.jpg"
