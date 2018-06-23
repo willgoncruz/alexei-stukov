@@ -51,19 +51,17 @@ class CreateTaskPage extends React.Component {
             priority: this.state.priority
         })
         .then(response => {
-            this.props.history.push('/tasks');
+            this.props.closeModal()
         })
         .catch(err => {
-        
+
         });
         return false;
     }
 
     render() {
-        return (<div>
-            <Header hasSearch={true} />
-            <div className={"form-container flex-container--column"}>
-                
+        return (<div className='CreateTaskPage'>
+
                 <form className={"flex-container inner-padding"} onSubmit={this.submitTask}>
                         <Typography className={this.props.classes.title}>
                             Nova tarefa
@@ -97,9 +95,8 @@ class CreateTaskPage extends React.Component {
                         <div className={this.props.classes.buttonContainer}>
                             <Button variant="raised" color="primary" type="submit"><SaveIcon />&nbsp;Criar tarefa</Button>
                         </div>
-                        
+
                 </form>
-            </div>
         </div>);
     }
 }
