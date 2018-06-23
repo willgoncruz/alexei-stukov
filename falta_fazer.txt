@@ -2,6 +2,7 @@ Projeto
     - página de visualização
     - link entre projeto e tarefa
     - colocar equipe em projeto
+    - criar times
 
 Página de estatísticas
     - progresso do projeto
