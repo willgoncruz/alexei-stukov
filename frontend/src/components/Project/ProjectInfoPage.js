@@ -11,16 +11,15 @@ const API_URL = 'http://18.228.31.90/api';
 
 class TeamCard extends React.PureComponent {
   render() {
-    const { id } = this.props
+    const { id, name } = this.props
 
+    const redirectTeamTasks = () => this.props.history.push(`/team/${id}/tasks`)
     return (
-      <Card>
+      <Card onClick={redirectTeamTasks} style={{ width: '50%' }}>
         <CardContent style={{ 'paddingBottom': '10px !important', 'overflow': 'hidden', 'cursor': 'pointer' }}>
-          Team {id}
+          {name} (ID: {id})
         </CardContent>
       </Card>
-      // <div>
-      // </div>
     )
   }
 }
@@ -52,11 +51,11 @@ class ProjectInfoPage extends React.Component {
           { name } (ID: { id })
         </h2>
 
-        <span>{description}</span>
+        <span style={{ fontStyle: 'italic' }}>{description}</span>
 
         <h2>Teams</h2>
 
-        { (teams || []).map(team => <TeamCard key={team.id} {...team} />) }
+        { (teams || []).map(team => <TeamCard key={team.id} {...team} history={this.props.history} />) }
 
       </div>
     );

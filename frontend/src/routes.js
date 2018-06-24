@@ -24,7 +24,8 @@ const Routes = () => {
 					<Route path="/tasks" component={TasksPage} exact={true} />
 					<Route path="/tasks/new" component={CreateTaskPage} exact={true}/>
 					<Route path="/tasks/:taskId" component={TaskInfoPage} />
-					<Route path="/projects/:id" component={ProjectInfoPage} />
+					<Route path="/project/:id" component={ProjectInfoPage} />
+					<Route path="/team/:teamId/tasks" component={TasksPage} />
 				</Switch>
 			</App>
 		</Router>
