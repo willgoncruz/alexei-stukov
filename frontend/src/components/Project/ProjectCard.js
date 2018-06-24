@@ -4,24 +4,35 @@ import { withStyles } from '@material-ui/core/styles';
 import Card from '@material-ui/core/Card';
 import CardContent from '@material-ui/core/CardContent';
 import CardMedia from '@material-ui/core/CardMedia';
-import Button from '@material-ui/core/Button';
+import IconButton from '@material-ui/core/IconButton';
 import Typography from '@material-ui/core/Typography';
+import TimelineIcon from '@material-ui/icons/Timeline';
 
 const styles = {
     media: {
         height: 0,
         paddingTop: '56.25%', // 16:9
         cursor: 'pointer'
+    },
+    bottomButtonsContainer: {
+        width: '100%',
+        display: 'flex',
+        flexDirection: 'row',
+        justifyContent: 'flex-end'
     }
 }
 
 class ProjectCard extends React.Component {
+    redirect = () => key => {
+        this.props.history.push(`/projects/${key}/statistics/`)
+    }
+
     render() {
         const { name, description, href, imageUrl, ...otherProps } = this.props;
 
         return (
             <div {...otherProps}>
-              <Card  className={this.props.classes.undecorated}>
+              <Card>
                 <CardMedia
                     onClick={() => {window.location.href = href}}
                     className={this.props.classes.media}
@@ -29,15 +40,18 @@ class ProjectCard extends React.Component {
                     title="Project Image"
                 />
                 <CardContent>
-                  <Typography component="h2"
-                              className={this.props.classes.undecorated} noWrap={true}>
+                  <Typography component="h2" noWrap={true}>
                     { name }
                   </Typography>
                   <Typography component="p" noWrap={true}>
                     { description }
                   </Typography>
+                  <div className={this.props.classes.bottomButtonsContainer}>
+                    <IconButton href={`/projects/${this.props.projectId}/statistics`}><TimelineIcon /></IconButton>
+                  </div>
                 </CardContent>
               </Card>
+              
             </div>
           );
     }

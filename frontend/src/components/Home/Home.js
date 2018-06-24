@@ -1,7 +1,6 @@
 import React from 'react';
 import request from 'axios';
 import ProjectCard from '../Project/ProjectCard';
-import CreateProjectPage from '../Project/CreateProjectPage';
 import LeftMenu from '../Menu/LeftMenu';
 import Header from '../Header/Header';
 import Button from '@material-ui/core/Button';
@@ -69,7 +68,9 @@ class Home extends React.Component {
         <LeftMenu />
         <div id="project-container" className="flex-container inner-padding left-menu-padding">
         {this.state.projects.map(project =>
-          <ProjectCard  key={project.id} className="w-sm"
+          <ProjectCard  key={`project-card-${project.id}`}
+                        className="w-sm"
+                        projectId={project.id}
                         href={project.url}
                         name={project.name}
                         description={project.description}
