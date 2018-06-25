@@ -27,3 +27,16 @@ $left-menu-width: 200px;
         padding-left: 0px;
     }
 }
+
+.meuLink {
+    display: block;
+    text-decoration: none;
+    color: white;
+    list-style: none;
+    font-family: 'Courier New', Courier, monospace;
+    padding: 12px 12px 12px 12px;
+}
+
+.meuLink:hover {
+    color: #0084ff;
+}

@@ -34,7 +34,6 @@ class ProjectStatisticsPage extends React.Component {
         const graphWidth = Math.floor(window.innerWidth < 800 ? window.innerWidth : window.innerWidth / 2);
         return (
             <div className={this.props.classes.container}>
-                <Header hasSearch={true} />
                 <div className="page-container">
                     <h2 className={this.props.classes.title}>Estatísticas do {this.state.projectName}</h2>
                     <AreaChart width={graphWidth} height={graphWidth * .4} data={this.state.chatData}
