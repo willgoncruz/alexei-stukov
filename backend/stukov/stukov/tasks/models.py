@@ -15,7 +15,7 @@ class Task(models.Model):
     date_limit = models.DateField(blank=False, null=False)
     description = models.TextField()
     priority = models.IntegerField()
-    status = models.CharField(max_length=100, choices=OPTIONS, default='backlog')
+    status = models.CharField(max_length=100)
     finished_date = models.DateField(blank=True,null=True)
 
 class Project(models.Model):
