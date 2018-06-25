@@ -25,6 +25,10 @@ $w75: calc(75% - 2 * #{$spacing});
     font-weight: bold;
 }
 
+.page-container {
+    padding: 10px;
+}
+
 .flex-container {
    width: 100%;
    display: flex;

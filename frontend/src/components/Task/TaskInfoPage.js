@@ -1,13 +1,10 @@
 import React from 'react';
-import Header from '../Header/Header';
-import TextField from '@material-ui/core/TextField';
 import Typography from '@material-ui/core/Typography';
-import SaveIcon from '@material-ui/icons/Save';
 import request from 'axios';
-import Button from '@material-ui/core/Button';
 import { withStyles } from '@material-ui/core/styles';
 import ChevronLeft from '@material-ui/icons/ChevronLeft';
 import IconButton from '@material-ui/core/IconButton';
+
 const styles = {
     title: {
         width: '100%',
@@ -35,7 +32,7 @@ class TaskInfoPage extends React.Component {
 
     componentWillMount() {
         const { taskId } = this.props.match.params;
-        
+
         request.get(`${API_URL}/tasks/${taskId}/`)
         .then(response => {
             this.setState({
@@ -49,9 +46,8 @@ class TaskInfoPage extends React.Component {
 
     render() {
         return (<div>
-            <Header hasSearch={true} />
             <div className={"form-container flex-container--column"} style={{paddingTop: '10px'}}>
-                
+
                 <div className={"flex-container"} onSubmit={this.submitTask}>
                         <Typography className={this.props.classes.title}>
                             <IconButton onClick={() => { window.location.href = '/tasks/'}}>
@@ -65,7 +61,7 @@ class TaskInfoPage extends React.Component {
                             <Typography className={this.props.classes.info}><span className={this.props.classes.infoTitle}>Prazo de entrega: </span>{ this.state.task.date_limit }</Typography>
                             <Typography className={this.props.classes.info}><span className={this.props.classes.infoTitle}>Descrição: </span>{ this.state.task.description }</Typography>
                         </div>
-                        
+
                 </div>
             </div>
         </div>);

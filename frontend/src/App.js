@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
+// import logo from './logo.svg';
 import CssBaseline from '@material-ui/core/CssBaseline';
 import { MuiThemeProvider } from '@material-ui/core/styles';
 import theme from './themes/mainTheme';
@@ -13,6 +13,7 @@ import './css/index.css';
 import './css/main-style.css';
 import './css/CreateProjectPage.css';
 import './css/LeftMenu.css';
+import 'font-awesome/css/font-awesome.min.css';
 
 class App extends Component {
   constructor() {

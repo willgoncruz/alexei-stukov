@@ -1,5 +1,4 @@
 import React from 'react';
-import Header from '../Header/Header';
 import TextField from '@material-ui/core/TextField';
 import Typography from '@material-ui/core/Typography';
 import SaveIcon from '@material-ui/icons/Save';
@@ -23,8 +22,8 @@ const styles = {
 const API_URL = 'http://18.228.31.90/api';
 
 class CreateTaskPage extends React.Component {
-    constructor() {
-        super();
+    constructor(props) {
+        super(props);
         this.state = {
             name: '',
             date: new Date(0),
