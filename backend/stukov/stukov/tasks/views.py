@@ -25,3 +25,7 @@ class TeamViewSet(viewsets.ModelViewSet):
     def list(self, request, pk=None):
         self.serializer_class = TeamListSerializer
         return super().list(request, pk)
+
+class AllProjectsPerTeamViewSet(viewsets.ModelViewSet):
+    queryset = Task.objects.all()
+    serializer_class = TaskSerializer

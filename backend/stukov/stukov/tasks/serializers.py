@@ -11,6 +11,7 @@ class TaskSerializer(serializers.HyperlinkedModelSerializer):
 
 class TeamListSerializer(serializers.HyperlinkedModelSerializer):
     users = UserSerializer(many=True)
+    tasks = TaskSerializer(many=True)
 
     class Meta:
         model = Team
@@ -31,3 +32,13 @@ class TeamSerializer(serializers.HyperlinkedModelSerializer):
     class Meta:
         model = Team
         fields = ('url', 'id', 'name', 'project', 'users', 'tasks')
+
+'''
+{
+    "name": "asdfasd",
+    "date_limit": "2018-10-10",
+    "description": "asdfasdf",
+    "priority": 2,
+    "team": {"id" : 1}
+}
+'''
