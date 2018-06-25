@@ -4,15 +4,14 @@ from .models import Task, Project, Team
 from stukov.users.serializers import UserSerializer
 
 
-
 class TaskSerializer(serializers.HyperlinkedModelSerializer):
     class Meta:
         model = Task
-        fields = ('url', 'id', 'name', 'date_limit', 'description', 'priority')
+        fields = ('url', 'id', 'name', 'date_limit', 'description', 'priority','status','finished_date')
 
 class TeamListSerializer(serializers.HyperlinkedModelSerializer):
     users = UserSerializer(many=True)
-    
+
     class Meta:
         model = Team
         fields = ('url', 'id', 'name', 'users', 'tasks')
@@ -29,7 +28,6 @@ class ProjectSerializer(serializers.HyperlinkedModelSerializer):
 
 
 class TeamSerializer(serializers.HyperlinkedModelSerializer):
-
     class Meta:
         model = Team
         fields = ('url', 'id', 'name', 'project', 'users', 'tasks')
