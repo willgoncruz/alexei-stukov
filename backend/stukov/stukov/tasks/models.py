@@ -5,17 +5,17 @@ from stukov.users.models import User
 
 class Task(models.Model):
     OPTIONS = (
-        ('BAC', 'Backlog'),
-        ('TOD', 'To do'),
-        ('DON', 'Doing'),
-        ('DOI', 'Done'),
+        ('backlog', 'backlog'),
+        ('todo', 'todo'),
+        ('todo', 'doing'),
+        ('done', 'done'),
     )
 
     name = models.CharField(max_length=255, blank=False, null=False)
     date_limit = models.DateField(blank=False, null=False)
     description = models.TextField()
     priority = models.IntegerField()
-    status = models.CharField(max_length=3, choices=OPTIONS, default='BAC')
+    status = models.CharField(max_length=100, choices=OPTIONS, default='backlog')
     finished_date = models.DateField(blank=True,null=True)
 
 class Project(models.Model):
