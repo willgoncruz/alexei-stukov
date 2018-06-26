@@ -71,7 +71,8 @@ class ProjectSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = Project
-        fields = ('url', 'id', 'name', 'teams', 'description')
+        fields = ('url', 'id', 'name', 'teams', 'description', 'image_url')
+        extra_kwargs = {'image_url': {'required' : False}}
 
     def team_serializer(self, project):
         return TeamListSerializer(project.team_set.all(), many=True, context=self.context).data
