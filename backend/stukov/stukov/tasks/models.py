@@ -14,6 +14,7 @@ class Task(models.Model):
     name = models.CharField(max_length=255, blank=False, null=False)
     date_limit = models.DateField(blank=False, null=False)
     description = models.TextField()
+    image_url = models.CharField(blank=True, null=True, max_length=512)
     priority = models.IntegerField()
     status = models.CharField(max_length=100)
     finished_date = models.DateField(blank=True, null=True)
