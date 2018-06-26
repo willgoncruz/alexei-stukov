@@ -65,6 +65,7 @@ class Home extends React.Component {
         <div id="project-container" className="flex-container inner-padding left-menu-padding">
         {this.state.projects.map(project =>
           <ProjectCard  key={project.id} className="w-sm"
+                        projectId={project.id}
                         href={`/project/${project.id}`}
                         name={project.name}
                         description={project.description}

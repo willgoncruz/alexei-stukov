@@ -50,9 +50,6 @@ class TaskInfoPage extends React.Component {
 
                 <div className={"flex-container"} onSubmit={this.submitTask}>
                         <Typography className={this.props.classes.title}>
-                            <IconButton onClick={() => { window.location.href = '/tasks/'}}>
-                                <ChevronLeft />
-                            </IconButton>
                             Tarefa: { this.state.task.name }
                         </Typography>
                         <div className="flex-container--column">

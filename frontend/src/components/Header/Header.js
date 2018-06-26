@@ -29,10 +29,6 @@ class Header extends React.Component {
                             size="small" href="http://localhost:3000/" type="a">
                             <span className="button-content">Projetos</span>
                     </Button>
-                    <Button className="header__item"
-                            size="small" href="http://localhost:3000/tasks/" type="a">
-                            <span className="button-content">Tarefas</span>
-                    </Button>
                     </div>
                     <IconButton aria-label="Ações">
                         <SettingsIcon className="button-content" />
