@@ -18,9 +18,9 @@ class TeamListSerializerField(serializers.Field):
             raise serializers.ValidationError("expected a list of data")
 
 class TaskSerializer(serializers.ModelSerializer):
-    date_limit = serializers.DateField(format="%Y/%m/%d")
-    finished_date = serializers.DateField(format="%Y/%m/%d")
-    
+    date_limit = serializers.DateField(format="%Y/%m/%d", input_formats=['%Y/%m/%d', 'iso-8601'])
+    finished_date = serializers.DateField(format="%Y/%m/%d", input_formats=['%Y/%m/%d', 'iso-8601'], required=False)
+
     class Meta:
         model = Task
         fields = ('url', 'id', 'name', 'date_limit', 'description', 'priority','status','finished_date')
@@ -28,8 +28,8 @@ class TaskSerializer(serializers.ModelSerializer):
 
 class TaskCreateSerializer(serializers.ModelSerializer):
     team = TeamListSerializerField(write_only=True)
-    date_limit = serializers.DateField(format="%Y/%m/%d")
-    finished_date = serializers.DateField(format="%Y/%m/%d")
+    date_limit = serializers.DateField(format="%Y/%m/%d", input_formats=['%Y/%m/%d', 'iso-8601'])
+    finished_date = serializers.DateField(format="%Y/%m/%d", input_formats=['%Y/%m/%d', 'iso-8601'], required=False)
 
     class Meta:
         model = Task
@@ -38,7 +38,7 @@ class TaskCreateSerializer(serializers.ModelSerializer):
     def validate_team(self, value):
         teams = Team.objects.filter(id__in=value)
         if len(teams) == 0:
-            raise serializers.ValidationError('There is a answer with a new id that did not exist before')
+            raise serializers.ValidationError('Nao exite time com algum id passado')
         teams = [t for t in teams]
         return teams
 
