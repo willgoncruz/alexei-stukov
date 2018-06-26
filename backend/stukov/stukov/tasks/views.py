@@ -2,13 +2,17 @@ from django.shortcuts import render
 
 from rest_framework import viewsets
 
-from .serializers import TaskSerializer, TeamSerializer, ProjectSerializer, TeamListSerializer
+from .serializers import TaskSerializer, TeamSerializer, ProjectSerializer, TeamListSerializer, TaskCreateSerializer
 from .models import Task, Project, Team
 
 # Create your views here.
 class TaskViewSet(viewsets.ModelViewSet):
     queryset = Task.objects.all()
     serializer_class = TaskSerializer
+
+    def create(self, request):
+        self.serializer_class = TaskCreateSerializer
+        return super().create(request)
 
 class ProjectViewSet(viewsets.ModelViewSet):
     queryset = Project.objects.all()
@@ -25,3 +29,7 @@ class TeamViewSet(viewsets.ModelViewSet):
     def list(self, request, pk=None):
         self.serializer_class = TeamListSerializer
         return super().list(request, pk)
+
+class AllProjectsPerTeamViewSet(viewsets.ModelViewSet):
+    queryset = Task.objects.all()
+    serializer_class = TaskSerializer

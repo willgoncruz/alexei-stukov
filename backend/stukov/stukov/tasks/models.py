@@ -4,10 +4,19 @@ from stukov.users.models import User
 # Create your models here.
 
 class Task(models.Model):
+    OPTIONS = (
+        ('backlog', 'backlog'),
+        ('todo', 'todo'),
+        ('todo', 'doing'),
+        ('done', 'done'),
+    )
+
     name = models.CharField(max_length=255, blank=False, null=False)
     date_limit = models.DateField(blank=False, null=False)
     description = models.TextField()
     priority = models.IntegerField()
+    status = models.CharField(max_length=100)
+    finished_date = models.DateField(blank=True, null=True)
 
 class Project(models.Model):
     name = models.CharField(max_length=255, blank=False, null=False)
