@@ -135,3 +135,11 @@ $w75: calc(75% - 2 * #{$spacing});
         width: 100%;
     }
 }
+
+.spaced-span {
+    margin-right: 15px;
+}
+
+.spaced-span:last-child {
+    margin-right: 0px;
+}
