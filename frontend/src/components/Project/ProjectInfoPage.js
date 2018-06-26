@@ -3,6 +3,7 @@ import React from 'react';
 import request from 'axios';
 import Card from '@material-ui/core/Card';
 import CardContent from '@material-ui/core/CardContent';
+import Typography from '@material-ui/core/Typography';
 
 const API_URL = 'http://18.228.31.90/api';
 
@@ -14,7 +15,9 @@ class TeamCard extends React.PureComponent {
     return (
       <Card onClick={redirectTeamTasks} style={{ width: '50%' }}>
         <CardContent style={{ 'paddingBottom': '10px !important', 'overflow': 'hidden', 'cursor': 'pointer' }}>
+        <Typography variant="headline" noWrap={true} gutterBottom>
           {name} (ID: {id})
+        </Typography>
         </CardContent>
       </Card>
     )
@@ -44,13 +47,19 @@ class ProjectInfoPage extends React.Component {
 
     return (
       <div className='ProjectInfoPage form-container flex-container--column'>
-        <h2 className='ProjectInfoPage__title'>
+        <Typography variant="display2" noWrap={true} gutterBottom>
           { name } (ID: { id })
-        </h2>
-
-        <span style={{ fontStyle: 'italic' }}>{description}</span>
-
-        <h2>Teams</h2>
+        </Typography>
+        <Typography variant="headline" noWrap={true} gutterBottom>
+          Descrição
+        </Typography>
+        <Typography variant="body1" noWrap={true} paragraph>
+          {description}
+        </Typography>
+      
+        <Typography variant="display1" noWrap={true} gutterBottom>
+          Times
+        </Typography>
 
         { (teams || []).map(team => <TeamCard key={team.id} {...team} history={this.props.history} />) }
 

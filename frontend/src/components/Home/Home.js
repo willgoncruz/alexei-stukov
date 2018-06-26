@@ -69,7 +69,7 @@ class Home extends React.Component {
                         href={`/project/${project.id}`}
                         name={project.name}
                         description={project.description}
-                        imageUrl="https://cdn.blizzardwatch.com/wp-content/uploads/2016/12/Gingerdread-Header-120916.jpg"
+                        imageUrl={ project.image_url ? project.image_url : "https://cdn.blizzardwatch.com/wp-content/uploads/2016/12/Gingerdread-Header-120916.jpg"}
           />
         )}
           <div className="pinned-right">
