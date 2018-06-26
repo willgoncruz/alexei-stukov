@@ -102,6 +102,9 @@ class TasksPage extends React.Component {
       const today = new Date();
       task.finished_date = `${today.getFullYear()}-${today.getMonth()}-${today.getDate()}`;
     }
+    else {
+      task.finished_date = null;
+    }
 
     request.put(`${API_URL}/tasks/${taskId}/`, task)
     .then(response => {

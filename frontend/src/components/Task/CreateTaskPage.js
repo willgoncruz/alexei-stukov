@@ -49,7 +49,6 @@ class CreateTaskPage extends React.Component {
             description: this.state.description,
             priority: this.state.priority,
             status: 'backlog',
-            finished_date: null,
             team: [this.props.teamId]
         })
         .then(response => {

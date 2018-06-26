@@ -25,14 +25,28 @@ class ProjectStatisticsPage extends React.Component {
         super();
         const tasks = _mockTasks().filter(date => date.finishDate != null).sort((t1, t2) => t1.finishDate.getTime() - t2.finishDate.getTime());
         this.state = {
-            projectName: 'Projeto 1',
-            tasks: tasks,
-            chatData: _getChartData(tasks)
+            projectName: '',
+            teams: [],
+            tasks: [],
+            chatData: []
         };
     }
 
     componentWillMount() {
-        request.get(`${API_URL}/projects/${this.props.match.projectId}`)
+        request.get(`${API_URL}/projects/${this.props.match.params.projectId}/`)
+        .then(response => {
+            const project = response.data;
+            this.setState({
+                projectName: project.name,
+                teams: project.teams,
+                tasks: [].concat.apply([], project.teams.map(t => t.tasks)) // merge tasks from all teams into one array
+            });
+
+            console.log(this.state);
+        })
+        .catch(err => {
+
+        });
     }
 
     render() {
@@ -51,6 +65,8 @@ class ProjectStatisticsPage extends React.Component {
                     </AreaChart>
                 </div>
             </div>
+
+            
         );
     }
 }
