@@ -113,7 +113,7 @@ class ProjectStatisticsPage extends React.Component {
                         <LineChart width={600} height={200} data={this.state.priorityData}>
                             <XAxis dataKey="name"/>
                             <YAxis dataKey="Quantidade"/>
-                            <Line type="monotone" dataKey="Quantidade" stroke="#8884d8" />
+                            <Line type="monotone" dataKey="Quantidade" stroke="#00796B" strokeWidth={2} />
                             <Tooltip/>
                         </LineChart>
                     </div>
