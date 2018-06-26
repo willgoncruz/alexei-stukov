@@ -16,7 +16,7 @@ class Task(models.Model):
     description = models.TextField()
     priority = models.IntegerField()
     status = models.CharField(max_length=100)
-    finished_date = models.DateField(blank=True,null=True)
+    finished_date = models.DateField(blank=True, null=True)
 
 class Project(models.Model):
     name = models.CharField(max_length=255, blank=False, null=False)
