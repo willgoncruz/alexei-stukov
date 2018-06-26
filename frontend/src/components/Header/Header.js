@@ -7,6 +7,7 @@ import IconButton from '@material-ui/core/IconButton';
 import SettingsIcon from '@material-ui/icons/Settings';
 import NotificationsIcon from '@material-ui/icons/Notifications';
 import SearchIcon from '@material-ui/icons/Search';
+import { history } from './../../routes'
 
 class Header extends React.Component {
     render() {
@@ -26,7 +27,7 @@ class Header extends React.Component {
                         />
                     }
                     <Button className="header__item"
-                            size="small" href="http://localhost:3000/" type="a">
+                            size="small" onClick={ () => history.push('/') }>
                             <span className="button-content">Projetos</span>
                     </Button>
                     </div>

@@ -4,6 +4,7 @@ import Header from '../Header/Header';
 import { LineChart, Line, AreaChart, Area, XAxis, YAxis, Tooltip, Legend, PieChart, Pie, Cell } from 'recharts';
 import request from 'axios';
 import Typography from '@material-ui/core/Typography';
+import Button from '@material-ui/core/Button';
 
 const styles = {
     container: {
@@ -52,6 +53,7 @@ class ProjectStatisticsPage extends React.Component {
             const tasks = [].concat.apply([], teams.map(t => t.tasks)) // merge tasks from all teams into one array
 
             this.setState({
+                projectId: project.id,
                 projectName: project.name,
                 teams: teams,
                 tasks: tasks,
@@ -127,6 +129,14 @@ class ProjectStatisticsPage extends React.Component {
                             <Tooltip/>
                         </LineChart>
                     </div>
+                </div>
+                <div>
+                    <Typography variant="headline" noWrap={true} gutterBottom>
+                        <p>Relatorio CSV</p>
+                    </Typography>
+                    <Button color="secondary" href={`http://18.228.31.90/reports/${this.state.projectId}`}>
+                        <span>Baixar CSV</span>
+                    </Button>
                 </div>
             </div>
         );

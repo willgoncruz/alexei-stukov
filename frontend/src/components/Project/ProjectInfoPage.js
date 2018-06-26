@@ -35,6 +35,8 @@ class ProjectInfoPage extends React.Component {
 
   componentWillMount() {
     const { id } = this.props.match.params
+    
+    this.props.changeMenu(id)
 
     request.get(`${API_URL}/projects/${id}/?format=json`).then(response => {
       this.setState({ project: response.data })

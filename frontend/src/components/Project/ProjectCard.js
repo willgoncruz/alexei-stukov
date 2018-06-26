@@ -7,6 +7,7 @@ import CardMedia from '@material-ui/core/CardMedia';
 import IconButton from '@material-ui/core/IconButton';
 import Typography from '@material-ui/core/Typography';
 import TimelineIcon from '@material-ui/icons/Timeline';
+import { history } from './../../routes'
 
 const styles = {
     media: {
@@ -34,10 +35,11 @@ class ProjectCard extends React.Component {
             <div {...otherProps}>
               <Card>
                 <CardMedia
-                    onClick={() => {window.location.href = href}}
+                    onClick={() => { history.push(href)} }
                     className={this.props.classes.media}
                     image={ imageUrl || '' }
                     title="Project Image"
+                    
                 />
                 <CardContent>
                   <Typography component="h2" noWrap={true}>
@@ -47,7 +49,7 @@ class ProjectCard extends React.Component {
                     { description }
                   </Typography>
                   <div className={this.props.classes.bottomButtonsContainer}>
-                    <IconButton href={`/projects/${this.props.projectId}/statistics/`}><TimelineIcon /></IconButton>
+                    <IconButton onClick={() => { history.push(`/projects/${this.props.projectId}/statistics/`)} }><TimelineIcon /></IconButton>
                   </div>
                 </CardContent>
               </Card>

@@ -10,15 +10,15 @@ const API_URL = 'http://18.228.31.90/api';
 
 
 class Home extends React.Component {
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
     this.state = {
       modalOpen: false,
       width: window.innerWidth,
       height: window.innerHeight,
       projects: []
     };
-
+    props.changeMenu(false)
     this.onClick = this.onClick.bind(this)
     this.closeModalSave = this.closeModalSave.bind(this)
   }

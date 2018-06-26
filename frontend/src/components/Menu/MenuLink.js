@@ -1,24 +1,27 @@
 
 import React from 'react';
 import Button from '@material-ui/core/Button';
+import Typography from '@material-ui/core/Typography';
+import { history } from './../../routes'
 
 class MenuLink extends React.Component {
     constructor(props) {
         super(props)
-        console.log(props)
     
     }
 
     render() {
         return (
+            <Typography variant="title" noWrap={true} gutterBottom>
             <li style={{ "text-align" : "left" }}>
-                <a href="http://localhost:3000/" className="meuLink">
+                <a onClick={() => history.push(`${this.props.href}`)} className="meuLink">
                 <i className={`fa ${this.props.iconName}`} style={{marginRight: '10px'}} />
                 <span>
-                    {this.props.menuName}
+                    {this.props.menuName} 
                 </span>
                 </a>
             </li>
+            </Typography>
         );
     }
 }

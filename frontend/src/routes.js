@@ -11,26 +11,51 @@ import ProjectInfoPage from './components/Project/ProjectInfoPage';
 import Header from './components/Header/Header'
 import LeftMenu from './components/Menu/LeftMenu'
 
-const history = createBrowserHistory()
-const Routes = () => {
-	return (
+
+export const history = createBrowserHistory()
+
+export const PropsRoute = ({ component: Component, ...props }) => (
+	<Route
+	  { ...props }
+	  render={ renderProps => (<Component { ...renderProps } { ...props } />) }
+	/>
+  );
+
+class Routes extends React.Component {
+
+	constructor(props) {
+		super(props)
+
+		this.state = {
+			projectId : false
+		}
+
+		this.changeMenu = this.changeMenu.bind(this);
+	}
+
+	changeMenu(pid){
+		this.setState({
+			projectId : pid
+		})
+	}
+
+	render() {
+		return(
 		<Router history={history}>
 			<App classname="App">
 				<Header hasSearch />
-				<LeftMenu />
+					
+				<LeftMenu projectId={this.state.projectId}/>
 				<Switch>
-					<Route exact path="/" component={Home} />
-					<Route path="/home" component={Home} />
-					{/* <Route path="/tasks" component={TasksPage} exact={true} />
-					<Route path="/tasks/new" component={CreateTaskPage} exact={true}/>
-					<Route path="/tasks/:taskId" component={TaskInfoPage} /> */}
-					<Route path="/project/:id" component={ProjectInfoPage} />
-					<Route path="/projects/:projectId/statistics" component={ProjectStatisticsPage}/>
-					<Route path="/team/:teamId/tasks" component={TasksPage} />
+					<PropsRoute exact path="/" component={Home} changeMenu={this.changeMenu}/>
+					<PropsRoute path="/home" component={Home} changeMenu={this.changeMenu}/>
+					<PropsRoute path="/project/:id" component={ProjectInfoPage} changeMenu={this.changeMenu}/>
+					<PropsRoute path="/projects/:projectId/statistics" component={ProjectStatisticsPage} changeMenu={this.changeMenu}/>
+					<PropsRoute path="/team/:teamId/tasks" component={TasksPage} changeMenu={this.changeMenu}/>
 				</Switch>
 			</App>
-		</Router>
-	)
+		</Router>)
+	}
 }
 
 export default Routes;
