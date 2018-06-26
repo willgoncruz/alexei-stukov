@@ -2,6 +2,7 @@ import React from 'react';
 import { withStyles } from '@material-ui/core/styles';
 import Header from '../Header/Header';
 import {AreaChart, Area, XAxis, YAxis, Tooltip, Legend} from 'recharts';
+import request from 'axios';
 
 const styles = {
     container: {
@@ -17,7 +18,7 @@ const styles = {
     }
 };
 
-// const API_URL = 'http://18.228.31.90/api';
+const API_URL = 'http://18.228.31.90/api';
 
 class ProjectStatisticsPage extends React.Component {
     constructor() {
@@ -28,6 +29,10 @@ class ProjectStatisticsPage extends React.Component {
             tasks: tasks,
             chatData: _getChartData(tasks)
         };
+    }
+
+    componentWillMount() {
+        request.get(`${API_URL}/projects/${this.props.match.projectId}`)
     }
 
     render() {

@@ -47,7 +47,7 @@ class ProjectCard extends React.Component {
                     { description }
                   </Typography>
                   <div className={this.props.classes.bottomButtonsContainer}>
-                    <IconButton href={`/projects/${this.props.projectId}/statistics`}><TimelineIcon /></IconButton>
+                    <IconButton href={`/projects/${this.props.projectId}/statistics/`}><TimelineIcon /></IconButton>
                   </div>
                 </CardContent>
               </Card>

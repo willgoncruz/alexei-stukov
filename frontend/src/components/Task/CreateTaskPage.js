@@ -47,13 +47,17 @@ class CreateTaskPage extends React.Component {
             name: this.state.name,
             date_limit: this.state.date,
             description: this.state.description,
-            priority: this.state.priority
+            priority: this.state.priority,
+            status: 'backlog',
+            finished_date: null,
+            team: [this.props.teamId]
         })
         .then(response => {
-            this.props.closeModal()
+            this.props.closeModal();
+            window.location.reload();
         })
         .catch(err => {
-
+            alert("Algo deu errado");
         });
         return false;
     }

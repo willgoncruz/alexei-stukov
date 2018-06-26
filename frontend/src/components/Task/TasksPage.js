@@ -37,7 +37,8 @@ class TasksPage extends React.Component {
       tasks_backlog: [],
       tasks_todo: [],
       tasks_doing: [],
-      tasks_done: []
+      tasks_done: [],
+      teamId: 0
     };
 
     this.toggleModal = this.toggleModal.bind(this)
@@ -45,15 +46,20 @@ class TasksPage extends React.Component {
   }
 
   componentWillMount() {
-    request.get(`${API_URL}/tasks/`)
-    .then(response => {
+    const { teamId } = this.props.match.params;
+    
+    this.setState({
+      teamId: teamId
+    });
 
-      const tasks = tasksJson.sort((t1, t2) => {return t1.id - t2.id});//response.data.sort((t1, t2) => {return t1.id - t2.id});
+    request.get(`${API_URL}/teams/${teamId}/`)
+    .then(response => {
+      const tasks = response.data.tasks.sort((t1, t2) => t1.id - t2.id);
       
       this.setState({
         modalOpen: false,
         tasks: tasks,
-        tasks_backlog: tasks.filter(t => t.status === 'backlog'),
+        tasks_backlog: tasks.filter(t => t.status === 'backlog' || t.status === undefined),
         tasks_todo: tasks.filter(t => t.status === 'todo'),
         tasks_doing: tasks.filter(t => t.status === 'doing'),
         tasks_done: tasks.filter(t => t.status === 'done')
@@ -92,12 +98,17 @@ class TasksPage extends React.Component {
    
     task.status = status;
 
+    if (task.status === 'done') {
+      const today = new Date();
+      task.finished_date = `${today.getFullYear()}-${today.getMonth()}-${today.getDate()}`;
+    }
+
     request.put(`${API_URL}/tasks/${taskId}/`, task)
     .then(response => {
-      return request.get(`${API_URL}/tasks/`);
+      return request.get(`${API_URL}/teams/${this.state.teamId}/`);
     })
     .then(response => {
-      const tasks = response.data.sort((t1, t2) => {return t1.id - t2.id});
+      const tasks = response.data.tasks.sort((t1, t2) => t1.id - t2.id);
 
       this.setState({
         tasks: tasks,
@@ -186,7 +197,7 @@ class TasksPage extends React.Component {
           </Button>
         </div>
         <ModalContainer open={this.state.modalOpen} onClick={this.toggleModal} closeModalSave={this.closeModalSave}>
-          <CreateTaskPage />
+          <CreateTaskPage teamId={ this.state.teamId }/>
         </ModalContainer>
       </div>
     );
