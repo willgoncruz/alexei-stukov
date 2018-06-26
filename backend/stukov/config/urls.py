@@ -1,5 +1,6 @@
 from django.conf import settings
 from django.urls import include, path
+from django.conf.urls import  url
 from django.conf.urls.static import static
 from django.contrib import admin
 from django.views.generic import TemplateView
@@ -7,7 +8,7 @@ from django.views import defaults as default_views
 from django.conf.urls import url, include
 from rest_framework import routers
 
-from stukov.tasks.views import TaskViewSet, ProjectViewSet, TeamViewSet
+from stukov.tasks.views import TaskViewSet, ProjectViewSet, TeamViewSet, ExportView
 from stukov.users.views import UserViewSet
 
 router = routers.DefaultRouter()
@@ -34,6 +35,7 @@ urlpatterns = [
     # Your stuff: custom urls includes go here
 
     path("api/", include(router.urls)),
+    url(r'^reports/(?P<projectId>[1-9][0-9]*)/$', ExportView.as_view()),
     path("users/", include("stukov.users.urls")),
 ] + static(
     settings.MEDIA_URL, document_root=settings.MEDIA_ROOT
