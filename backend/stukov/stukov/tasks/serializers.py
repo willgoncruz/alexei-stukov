@@ -18,6 +18,9 @@ class TeamListSerializerField(serializers.Field):
             raise serializers.ValidationError("expected a list of data")
 
 class TaskSerializer(serializers.ModelSerializer):
+    date_limit = serializers.DateField(format="%Y/%m/%d")
+    finished_date = serializers.DateField(format="%Y/%m/%d")
+    
     class Meta:
         model = Task
         fields = ('url', 'id', 'name', 'date_limit', 'description', 'priority','status','finished_date')
@@ -25,6 +28,8 @@ class TaskSerializer(serializers.ModelSerializer):
 
 class TaskCreateSerializer(serializers.ModelSerializer):
     team = TeamListSerializerField(write_only=True)
+    date_limit = serializers.DateField(format="%Y/%m/%d")
+    finished_date = serializers.DateField(format="%Y/%m/%d")
 
     class Meta:
         model = Task
