@@ -19,7 +19,7 @@ class TeamListSerializerField(serializers.Field):
 
 class TaskSerializer(serializers.ModelSerializer):
     date_limit = serializers.DateField(format="%Y/%m/%d", input_formats=['%Y/%m/%d', 'iso-8601'])
-    finished_date = serializers.DateField(format="%Y/%m/%d", input_formats=['%Y/%m/%d', 'iso-8601'], required=False)
+    finished_date = serializers.DateField(format="%Y/%m/%d", input_formats=['%Y/%m/%d', 'iso-8601'], required=False, allow_null=True)
 
     class Meta:
         model = Task
@@ -29,7 +29,7 @@ class TaskSerializer(serializers.ModelSerializer):
 class TaskCreateSerializer(serializers.ModelSerializer):
     team = TeamListSerializerField(write_only=True)
     date_limit = serializers.DateField(format="%Y/%m/%d", input_formats=['%Y/%m/%d', 'iso-8601'])
-    finished_date = serializers.DateField(format="%Y/%m/%d", input_formats=['%Y/%m/%d', 'iso-8601'], required=False)
+    finished_date = serializers.DateField(format="%Y/%m/%d", input_formats=['%Y/%m/%d', 'iso-8601'], required=False, allow_null=True)
 
     class Meta:
         model = Task
