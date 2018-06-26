@@ -18,6 +18,9 @@ class Task(models.Model):
     status = models.CharField(max_length=100)
     finished_date = models.DateField(blank=True, null=True)
 
+    def __str__(self):
+        return self.name
+
 class Project(models.Model):
     name = models.CharField(max_length=255, blank=False, null=False)
     image_url = models.CharField(blank=True, null=True, max_length=512)
