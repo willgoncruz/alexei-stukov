@@ -3,6 +3,7 @@ import { withStyles } from '@material-ui/core/styles';
 import Header from '../Header/Header';
 import { LineChart, Line, AreaChart, Area, XAxis, YAxis, Tooltip, Legend, PieChart, Pie, Cell } from 'recharts';
 import request from 'axios';
+import Typography from '@material-ui/core/Typography';
 
 const styles = {
     container: {
@@ -77,39 +78,48 @@ class ProjectStatisticsPage extends React.Component {
                     </AreaChart></div>*/
         return (
             <div className={this.props.classes.container}>
-               
-                <h2 className={this.props.classes.title}>Estatísticas do {this.state.projectName}</h2>
+               <Typography variant="display2" noWrap={true} gutterBottom>
+                Estatísticas do {this.state.projectName}
+               </Typography>
 
                 <div className={this.props.classes.flexRow}>
                     <div style={{textAlign: 'center'}}>
-                        <p>Tarefas por estado</p>
+                        <Typography variant="headline" noWrap={true} gutterBottom>
+                        Tarefas por estado
+                        </Typography>
                         <PieChart width={400} height={350}>
                             <Pie isAnimationActive={true} data={this.state.statusProportionData} cx={200} cy={200} outerRadius={100} fill="#8884d8" label>
                                 { this.state.statusProportionData.map(d => <Cell fill={d.color} />) }
                             </Pie>
                             <Tooltip/>
                         </PieChart>
-
-                        { this.state.statusProportionData.map(d => <span className="spaced-span" style={{color: d.color, fontWeight: 'bolder'}}>{ d.name }</span>) }
+                        <Typography variant="body2" noWrap={true}>
+                            { this.state.statusProportionData.map(d => <span className="spaced-span" style={{color: d.color, fontWeight: 'bolder'}}>{ d.name }</span>) }
+                        </Typography>
                     </div>
 
                     <div style={{textAlign: 'center'}}>
-                        <p>Tarefas atradas</p>
+                    <Typography variant="headline" noWrap={true} gutterBottom>
+                        Tarefas 
+                        </Typography>
                         <PieChart width={400} height={350}>
                             <Pie isAnimationActive={true} data={this.state.lateTasksData} cx={200} cy={200} outerRadius={100} fill="#8884d8" label>
                                 { this.state.lateTasksData.map(d => <Cell fill={d.color} />) }
                             </Pie>
                             <Tooltip/>
                         </PieChart>
-
-                        { this.state.lateTasksData.map(d => <span className="spaced-span" style={{color: d.color, fontWeight: 'bolder'}}>{ d.name }</span>) }
+                        <Typography variant="body2" noWrap={true}>
+                            { this.state.lateTasksData.map(d => <span className="spaced-span" style={{color: d.color, fontWeight: 'bolder'}}>{ d.name }</span>) }
+                        </Typography>
                     </div>
                 </div>
 
                 <div className={this.props.classes.flexRow} style={{marginTop: '50px'}}>
                     
                     <div style={{textAlign: 'center'}}>
-                        <p>Prioridades</p>
+                        <Typography variant="headline" noWrap={true} gutterBottom>
+                            <p>Prioridades</p>
+                        </Typography>
                         <LineChart width={600} height={200} data={this.state.priorityData}>
                             <XAxis dataKey="name"/>
                             <YAxis dataKey="Quantidade"/>

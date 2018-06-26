@@ -3,6 +3,7 @@ import React from 'react';
 import request from 'axios';
 import TextField from '@material-ui/core/TextField';
 import { Button } from '@material-ui/core';
+import Typography from '@material-ui/core/Typography';
 
 const API_URL = 'http://18.228.31.90/api';
 
@@ -34,9 +35,12 @@ class CreateProject extends React.Component {
   render() {
     return (
       <div className='CreateProject'>
-        <h1 className='CreateProject__title'>
-          Criação de projeto
-        </h1>
+        <Typography variant="display2" noWrap={true} gutterBottom className='CreateProject__title'>
+          <p >
+            Criação de projeto
+          </p>
+        </Typography>
+        
 
         <div className='text-field-centralize'>
           <TextField name='name' label='Nome' value={this.state.name} onChange={this.onChange} fullWidth />
@@ -44,6 +48,10 @@ class CreateProject extends React.Component {
 
         <div className='text-field-centralize'>
           <TextField name='description' label='Descrição' value={this.state.description} onChange={this.onChange} multiline fullWidth />
+        </div>
+
+        <div className='text-field-centralize'>
+          <TextField name='image_url' label='Url da Imagem do projeto' value={this.state.image_url} onChange={this.onChange} multiline fullWidth />
         </div>
 
         <div className='create-project-button'>
